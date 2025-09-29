@@ -1,6 +1,6 @@
 import 'dart:ui';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -53,27 +53,28 @@ class HomeScreen extends StatelessWidget {
                 ),
                 // 'Glas' Box über dem Bild!
                 Transform.translate(
-                  offset: const Offset(0, -40), // ersetzt negatives Padding
+                  offset: const Offset(0, 30), // ersetzt negatives Padding
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // für den 'glas' Effekt
+                      filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6), // für den 'glas' Effekt
                       child: Container(
                         height: 200,
                         margin: const EdgeInsets.symmetric(horizontal: 20),
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.white.withAlpha(51), // 0.2 * 255 = 51
+                          color: Colors.white.withOpacity(0.01),
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(color: Colors.white.withAlpha(51)),
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Text(
                             'Feeling Snackish Today?',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                            style: GoogleFonts.roboto(
+                              textStyle: TextStyle(
+                                fontSize: 26, 
+                                fontWeight: FontWeight.w900,
+                                color: Colors.white,),
                             ),
                           ),
                         ),
