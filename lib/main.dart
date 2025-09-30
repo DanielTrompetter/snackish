@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:snackish/screens/homescreen.dart';
+import 'package:snackish/screens/orderscreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +16,7 @@ void main() async {
     initialRoute: '/home',
     routes: {
       '/home': (context) => HomeScreen(),
-      // '/showpicture': (context) => BigPictureScreen(), 
+      '/showorders': (context) => OrderScreen(), 
       // '/profile': (context) => ProfileScreen(),
     },
     debugShowCheckedModeBanner: false,

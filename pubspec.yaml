@@ -22,3 +22,10 @@ flutter:
     - assets/backgrounds/
     - assets/grafiken/
     - assets/details/
+    - assets/fonts/  # 👈 Font-Ordner hinzugefügt
+
+  fonts:
+    - family: SFPro
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Regular.otf
+          weight: 400

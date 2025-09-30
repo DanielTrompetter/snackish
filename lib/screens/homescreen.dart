@@ -11,79 +11,180 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           // Hintergrundbild
-          Column(
-            children: [
-              Image.asset(
-                'assets/backgrounds/bg_startscreen.png',
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ],
+          Positioned.fill(
+            child: Image.asset(
+              'assets/backgrounds/bg_startscreen.png',
+              fit: BoxFit.cover,
+            ),
           ),
+
           // Overlay-Bild leicht nach unten und rechts
-          Align(
-            alignment: Alignment.topLeft,
+          Transform.translate(
+            offset: const Offset(40, 140),
             child: Transform.scale(
               scale: 1.5,
-              child: Transform.translate(
-                offset: const Offset(40, 140),
-                child: Image.asset(
-                  'assets/grafiken/cupcake_chick.png',
-                ),
+              child: Image.asset(
+                'assets/grafiken/cupcake_chick.png',
               ),
             ),
           ),
           // Snack-Bild zentriert und leicht nach unten
-          Align(
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Transform.scale(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Transform.translate(
+                offset: const Offset(10, 370),
+                child: Transform.scale(
                   scale: 1.1,
-                  child: Transform.translate(
-                    offset: const Offset(0, 200),
-                    child: Opacity(
-                      opacity: 0.4,
-                      child: Image.asset(
-                        'assets/details/snack_snack.png',
-                      ),
+                  child: Opacity(
+                    opacity: 0.4,
+                    child: Image.asset(
+                      'assets/details/snack_snack.png',
+                      fit: BoxFit.none,
                     ),
                   ),
                 ),
-                // 'Glas' Box über dem Bild!
-                Transform.translate(
-                  offset: const Offset(0, 30), // ersetzt negatives Padding
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6), // für den 'glas' Effekt
-                      child: Container(
-                        height: 200,
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withAlpha(1),
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.white.withAlpha(30)),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'Feeling Snackish Today?',
-                            style: GoogleFonts.roboto(
-                              textStyle: TextStyle(
-                                fontSize: 26, 
-                                fontWeight: FontWeight.w900,
-                                color: Colors.white,),
+              ),
+              const SizedBox(height: 185),
+              // Glasbox mit entkoppeltem Blur
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  // Blur-Ebene
+                  IgnorePointer(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+                        child: Container(
+                          width: 400,
+                          height: 220,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withAlpha(1),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: Colors.white.withAlpha(30),
+                              width: 1,
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                  // hier kommt der Content!
+                  Container(
+                    width: 400,
+                    height: 220,
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Feeling Snackish Today?',
+                          style: GoogleFonts.inter(
+                            textStyle: const TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'Explore Angi’s most popular snack selection and get instantly happy.',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontFamily: 'SFPro',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 18,
+                            color: Color.fromRGBO(235, 235, 245, 0.6),
+                            shadows: [
+                              Shadow(
+                                color: Color.fromRGBO(0, 0, 0, 0.25),
+                                blurRadius: 60,
+                                offset: Offset(0, 30),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        // Button mit Gradient-Stroke verpackt 
+                        // in einem Stack weil da noch überlappende Farbverläufe sind, danke JP!
+                        Stack(
+                          children: [
+                            // der äußere Gradient-Stroke
+                            Container(
+                              width: 300,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft,
+                                  colors: [
+                                    Color.fromRGBO(255, 255, 255, 0.5),
+                                    Color.fromRGBO(0, 0, 0, 0.5),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            // und der innere Gradient mitsamt Schatten
+                            Container(
+                              width: 296,
+                              height: 76,
+                              margin: const EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                gradient: const LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xFFE970C4),
+                                    Color(0xFFF69EA3),
+                                  ],
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x80EA71C5),
+                                    blurRadius: 10,
+                                    offset: Offset(0, 4),
+                                  ),
+                                ],
+                              ),
+                              // und endlich der Button... meine Fresse!
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/showorders');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.transparent,
+                                  shadowColor: Colors.transparent,
+                                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  fixedSize: const Size(296, 76),
+                                ),
+                                child: Text(
+                                  'Order now',
+                                  style: GoogleFonts.inter(
+                                    textStyle: const TextStyle(
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
