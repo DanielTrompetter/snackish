@@ -90,10 +90,9 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Text(
-                          'Explore Angi’s most popular snack selection and get instantly happy.',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
+                        Text('Explore Angi’s most popular snack selection and get instantly happy.',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
                             fontFamily: 'SFPro',
                             fontWeight: FontWeight.w400,
                             fontSize: 18,

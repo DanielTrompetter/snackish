@@ -15,8 +15,8 @@ void main() async {
   runApp(MaterialApp(
     initialRoute: '/home',
     routes: {
-      '/home': (context) => HomeScreen(),
-      '/showorders': (context) => OrderScreen(), 
+      '/home': (context) => OrderScreen(),
+      '/showorders': (context) => HomeScreen(), 
       // '/profile': (context) => ProfileScreen(),
     },
     debugShowCheckedModeBanner: false,
