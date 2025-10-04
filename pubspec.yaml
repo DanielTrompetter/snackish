@@ -15,6 +15,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  flutter_svg: ^2.0.7
 
 flutter:
   uses-material-design: true
@@ -22,10 +23,13 @@ flutter:
     - assets/backgrounds/
     - assets/grafiken/
     - assets/details/
-    - assets/fonts/  # 👈 Font-Ordner hinzugefügt
+    - assets/fonts/
+    - assets/icons/
 
   fonts:
     - family: SFPro
       fonts:
         - asset: assets/fonts/SF-Pro-Display-Regular.otf
           weight: 400
+
+

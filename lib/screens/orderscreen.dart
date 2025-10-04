@@ -1,7 +1,7 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:snackish/helpers/texthelper.dart';
 import 'package:snackish/widgets/dropdown.dart';
 import 'package:snackish/widgets/foodcarousel.dart';
 
@@ -56,11 +56,32 @@ class OrderScreen extends StatelessWidget {
                 Transform.translate(offset: Offset(0, -30), 
                   child: RecommendedCard(),
                 ),              
-                const SizedBox(height: 20),
+                Transform.translate(offset: Offset(0, -90), 
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text('We Recommend',
+                      textAlign: TextAlign.left,
+                      style: GoogleFonts.inter(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                        shadows: [
+                          Shadow(
+                            offset: Offset(0, 30),
+                            blurRadius: 180,
+                            color: Colors.black.withAlpha(128),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 // FoodKarussell
-                Padding(
+                Transform.translate(offset: Offset(0, -80), 
+                  child: Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: FoodCarousel(),
+                  ),
                 ),
               ],
             ),
@@ -125,59 +146,11 @@ class RecommendedCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Angi’s Yummy Burger", 
-                textAlign: TextAlign.left,
-                style: 
-                    const TextStyle(
-                    fontFamily: 'SFPro',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Color.fromRGBO(255, 255, 255, 1.0),
-                    shadows: [
-                      Shadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.25),
-                      blurRadius: 60,
-                      offset: Offset(0, 30),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Text("Delish vegan burger\nthat tastes like heaven", 
-                textAlign: TextAlign.left,
-                style: 
-                    const TextStyle(
-                    fontFamily: 'SFPro',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    color: Color.fromRGBO(255, 255, 255, 1.0),
-                    shadows: [
-                      Shadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.25),
-                      blurRadius: 60,
-                      offset: Offset(0, 30),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Text("􁑐 13.99", 
-                textAlign: TextAlign.left,
-                style: 
-                    const TextStyle(
-                    fontFamily: 'SFPro',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Color.fromRGBO(255, 255, 255, 1.0),
-                    shadows: [
-                      Shadow(
-                      color: Color.fromRGBO(0, 0, 0, 0.25),
-                      blurRadius: 60,
-                      offset: Offset(0, 30),
-                      ),
-                    ],
-                  ),
-                ),
+                SFText(text: "Angi’s Yummy Burger", weight: FontWeight.bold, size: 20, color: Colors.white, align: TextAlign.left),
+                const SizedBox(height: 10),
+                SFText(text: "Delish vegan burger\nthat tastes like heaven", weight: FontWeight.w400, size: 16, color: Colors.white, align: TextAlign.left),
+                const SizedBox(height: 10),
+                SFText(text: "􁑐 13.99", weight: FontWeight.bold, size: 20, color: Colors.white, align: TextAlign.left),
                 const SizedBox(height: 40),
                 // Button mit Gradient-Stroke verpackt 
                 // in einem Stack weil da noch überlappende Farbverläufe sind, danke JP!
@@ -235,23 +208,13 @@ class RecommendedCard extends StatelessWidget {
                         ),
                         child: Align(
                           alignment: Alignment.centerLeft,                          
-                          child: Text(
-                            'Add to order',
-                            textAlign: TextAlign.left,
-                              style: const TextStyle(
-                              fontFamily: 'SFPro',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: Color.fromRGBO(255, 255, 255, 1.0),
-                              shadows: [
-                                Shadow(
-                                color: Color.fromRGBO(0, 0, 0, 0.25),
-                                blurRadius: 60,
-                                offset: Offset(0, 30),
-                                ),
-                              ],
+                          child: InterText(
+                            text: 'Add to order', 
+                            weight: FontWeight.bold, 
+                            size: 12, 
+                            color: Colors.white, 
+                            align: TextAlign.center
                             ),
-                          ),
                         )
                       ),
                     ),
@@ -291,3 +254,5 @@ class RecommendedCard extends StatelessWidget {
     );
   }
 }
+
+

@@ -151,18 +151,16 @@ class SingleCatButton extends StatelessWidget {
               width: 100,
               height: 50,
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontFamily: 'SFPro',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18,
-                      color: Colors.black,
-                    ),
+              child: Center(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontFamily: 'SFPro',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18,
+                    color: Colors.black,
                   ),
-                ],
+                ),
               ),
             ),
           ],
