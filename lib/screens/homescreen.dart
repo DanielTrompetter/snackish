@@ -45,26 +45,29 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 185),
+              const SizedBox(height: 165),
               // Glasbox mit entkoppeltem Blur
               Stack(
                 alignment: Alignment.center,
                 children: [
                   // Blur-Ebene
                   IgnorePointer(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-                        child: Container(
-                          width: 400,
-                          height: 220,
-                          decoration: BoxDecoration(
-                            color: Colors.white.withAlpha(1),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: Colors.white.withAlpha(30),
-                              width: 1,
+                    child: Padding(
+                      padding: EdgeInsetsGeometry.directional(start: 20, end: 20),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(30),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
+                          child: Container(
+                            width: double.infinity,
+                            height: 240,
+                            decoration: BoxDecoration(
+                              color: Colors.white.withAlpha(1),
+                              borderRadius: BorderRadius.circular(30),
+                              border: Border.all(
+                                color: Colors.white.withAlpha(30),
+                                width: 1,
+                              ),
                             ),
                           ),
                         ),
@@ -114,9 +117,9 @@ class HomeScreen extends StatelessWidget {
                             // der äußere Gradient-Stroke
                             Container(
                               width: 300,
-                              height: 80,
+                              height: 70,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(16),
                                 gradient: LinearGradient(
                                   begin: Alignment.topRight,
                                   end: Alignment.bottomLeft,
@@ -130,10 +133,10 @@ class HomeScreen extends StatelessWidget {
                             // und der innere Gradient mitsamt Schatten
                             Container(
                               width: 296,
-                              height: 76,
+                              height: 66,
                               margin: const EdgeInsets.all(2),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(16),
                                 gradient: const LinearGradient(
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
@@ -160,9 +163,9 @@ class HomeScreen extends StatelessWidget {
                                   shadowColor: Colors.transparent,
                                   padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(16),
                                   ),
-                                  fixedSize: const Size(296, 76),
+                                  fixedSize: const Size(296, 66),
                                 ),
                                 child: Text(
                                   'Order now',

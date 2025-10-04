@@ -230,22 +230,12 @@ class RecommendedCard extends StatelessWidget {
             children: [
               Image.asset('assets/grafiken/star.png'),
               SizedBox(width: 4),
-              Text('4.8', 
-              textAlign: TextAlign.left,
-              style: 
-                  const TextStyle(
-                  fontFamily: 'SFPro',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 12,
-                  color: Color.fromRGBO(255, 255, 255, 1.0),
-                  shadows: [
-                    Shadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.25),
-                    blurRadius: 60,
-                    offset: Offset(0, 30),
-                    ),
-                  ],
-                ),
+              SFText(
+                text: '4.8', 
+                align: TextAlign.left,
+                weight: FontWeight.w400,
+                size: 12,
+                color: Color.fromRGBO(255, 255, 255, 1.0),
               ),
             ]
           )
