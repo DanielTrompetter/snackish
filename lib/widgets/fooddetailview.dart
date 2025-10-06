@@ -339,7 +339,7 @@ class _OrderFooterBarState extends State<OrderFooterBar> {
                     child: Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 2),
+                        border: Border.all(color: Colors.white.withAlpha(127), width: 2),
                       ),
                       child: IconButton(
                         icon: const Icon(Icons.remove, size: 16, color: Colors.white),
@@ -364,7 +364,7 @@ class _OrderFooterBarState extends State<OrderFooterBar> {
                     child: Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: Colors.white, width: 2),
+                        border: Border.all(color: Colors.white.withAlpha(127), width: 2),
                       ),
                       child: IconButton(
                         icon: const Icon(Icons.add, size: 16, color: Colors.white),
