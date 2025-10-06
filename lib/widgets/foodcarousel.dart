@@ -14,7 +14,7 @@ class FoodCarousel extends StatelessWidget {
         itemCount: foodItems.length, // ← dynamisch
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemBuilder: (context, index) {
-          final item = foodItems[index]; // ← Zugriff auf FoodItem
+          final item = foodItems[index]; // Zugriff auf FoodItem
 
           return SingleFoodItem(item: item);
         },

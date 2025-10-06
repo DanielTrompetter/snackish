@@ -29,21 +29,12 @@ class OrderScreen extends StatelessWidget {
                 // Textblock
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Choose Your Favorite\nSnack',
-                    style: GoogleFonts.inter(
+                  child: InterText(
+                      text: 'Choose Your Favorite\nSnack',
                       color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w900,
-                      shadows: [
-                        Shadow(
-                          offset: Offset(0, 30),
-                          blurRadius: 180,
-                          color: Colors.black.withAlpha(128),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.left,
+                      size: 24,
+                      weight: FontWeight.w900,
+                      align: TextAlign.left,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -57,22 +48,14 @@ class OrderScreen extends StatelessWidget {
                   child: RecommendedCard(),
                 ),              
                 Transform.translate(offset: Offset(0, -90), 
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text('We Recommend',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.inter(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        shadows: [
-                          Shadow(
-                            offset: Offset(0, 30),
-                            blurRadius: 180,
-                            color: Colors.black.withAlpha(128),
-                          ),
-                        ],
-                      ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: InterText(
+                    text: 'We Recommend',
+                    align: TextAlign.left,
+                    color: Colors.white,
+                    size: 20,
+                    weight: FontWeight.w900,
                     ),
                   ),
                 ),

@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:snackish/helpers/texthelper.dart';
 
 class SnackCategoryDropdown extends StatelessWidget {
   SnackCategoryDropdown({super.key});
@@ -87,15 +88,13 @@ class CatSelector extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  '􀻐 All categories',
-                  style: TextStyle(
-                    fontFamily: 'SFPro',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    color: Colors.white,
+                SFText(
+                  text: '􀻐 All categories',
+                  weight: FontWeight.w400,
+                  size: 16,
+                  color: Colors.white,
+                  align: TextAlign.left
                   ),
-                ),
                 Icon(Icons.keyboard_arrow_down, color: Colors.grey[700]),
               ],
             ),
@@ -152,14 +151,12 @@ class SingleCatButton extends StatelessWidget {
               height: 50,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Center(
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    fontFamily: 'SFPro',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 18,
-                    color: Colors.black,
-                  ),
+                child: SFText(
+                  text: title,
+                  weight: FontWeight.w400,
+                  size: 18,
+                  color: Colors.black,
+                  align: TextAlign.left
                 ),
               ),
             ),
